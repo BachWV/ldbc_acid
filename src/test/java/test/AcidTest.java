@@ -2,10 +2,8 @@ package test;
 
 import com.google.common.collect.ImmutableMap;
 import driver.TestDriver;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
+import org.junit.runners.MethodSorters;
 import transactions.TransactionThread;
 
 import java.util.*;
@@ -13,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
-
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public abstract class AcidTest<TTestDriver extends TestDriver> {
 
     protected TTestDriver testDriver;
@@ -37,7 +35,6 @@ public abstract class AcidTest<TTestDriver extends TestDriver> {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
     }
 
     @Test
